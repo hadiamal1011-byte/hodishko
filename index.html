@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Хадишка ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+background:linear-gradient(135deg,#ffd6ec,#f8b7ff,#d4c3ff);
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.card{
+
+width:360px;
+max-width:95%;
+background:rgba(255,255,255,.25);
+backdrop-filter:blur(18px);
+border-radius:30px;
+padding:35px;
+text-align:center;
+box-shadow:0 20px 50px rgba(0,0,0,.15);
+
+animation:show .8s;
+}
+
+@keyframes show{
+
+from{
+
+opacity:0;
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+.cat{
+
+font-size:95px;
+animation:bounce 2s infinite;
+
+}
+
+@keyframes bounce{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+}
+
+h1{
+
+font-size:42px;
+color:#ff2f86;
+margin-top:10px;
+
+}
+
+p{
+
+font-size:22px;
+margin-top:15px;
+
+}
+
+button{
+
+width:100%;
+padding:17px;
+margin-top:18px;
+border:none;
+border-radius:18px;
+font-size:20px;
+font-weight:700;
+cursor:pointer;
+transition:.3s;
+
+}
+
+.yes{
+
+background:#ff4ea1;
+color:white;
+
+}
+
+.yes:hover{
+
+transform:scale(1.04);
+
+}
+
+.no{
+
+background:white;
+color:#ff2f86;
+position:relative;
+
+}
+
+.food{
+
+display:none;
+
+}
+
+.transport{
+
+display:none;
+
+}
+
+.final{
+
+display:none;
+
+}
+
+.food button{
+
+background:white;
+
+}
+
+.transport button{
+
+background:white;
+
+}
+
+.hearts{
+
+position:fixed;
+left:0;
+top:0;
+width:100%;
+height:100%;
+pointer-events:none;
+
+}
+
+.heart{
+
+position:absolute;
+font-size:24px;
+animation:fly 6s linear infinite;
+
+}
+
+@keyframes fly{
+
+from{
+
+transform:translateY(100vh);
+
+}
+
+to{
+
+transform:translateY(-120px);
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="hearts"></div>
+
+<div class="card">
+
+<div class="start">
+
+<div class="cat">🐱</div>
+
+<h1>Хадишка ❤️</h1>
+
+<p>Ты пойдёшь со мной на свидание?</p>
+
+<button class="yes" onclick="food()">Да 💖</button>
+
+<button class="no" id="no">Нет 🙈</button>
+
+</div><div class="food">
+
+<h1>🍕</h1>
+
+<p>Что будем кушать?</p>
+
+<button onclick="transport()">🍕 Пицца</button>
+
+<button onclick="transport()">🍔 Бургер</button>
+
+<button onclick="transport()">🍣 Суши</button>
+
+<button onclick="transport()">🍰 Десерт</button>
+
+</div>
+
+<div class="transport">
+
+<h1>🚶</h1>
+
+<p>Как поедем?</p>
+
+<button onclick="alert1()">🚕 Закажешь Комфорт+</button>
+
+<button onclick="alert2()">🚗 Заберёшь меня сам</button>
+
+<button class="yes" onclick="finish()">
+💕 Пойдём пешком за ручку
+</button>
+
+</div>
+
+<div class="final">
+
+<h1>💖</h1>
+
+<h2 style="margin-top:20px;color:#ff2f86;">
+Спасибо, Хадишка ❤️
+</h2>
+
+<p style="margin-top:15px;">
+Теперь официально идём на свидание 🌹
+</p>
+
+<button class="yes" onclick="love()">
+Обнять 🤗
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+const no=document.getElementById("no");
+
+no.onclick=()=>{
+
+no.style.position="absolute";
+
+no.style.left=Math.random()*250+"px";
+
+no.style.top=Math.random()*450+"px";
+
+}
+
+function food(){
+
+document.querySelector(".start").style.display="none";
+document.querySelector(".food").style.display="block";
+
+}
+
+function transport(){
+
+document.querySelector(".food").style.display="none";
+document.querySelector(".transport").style.display="block";
+
+}
+
+function finish(){
+
+document.querySelector(".transport").style.display="none";
+document.querySelector(".final").style.display="block";
+
+}
+
+function alert1(){
+
+alert("❌ Нельзя 🥹 Нажми «Пойдём пешком за ручку»");
+
+}
+
+function alert2(){
+
+alert("😼 Нет-нет. Выбирай последний вариант.");
+
+}
+
+function love(){
+
+for(let i=0;i<150;i++){
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML="❤️";
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.animationDuration=3+Math.random()*4+"s";
+
+document.querySelector(".hearts").appendChild(h);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
